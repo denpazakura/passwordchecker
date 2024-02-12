@@ -15,7 +15,6 @@ def request_api_data(query_param):
 def pwned_api_check(password):
     sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     head, tail = sha1password[:5], sha1password[5:]
-    print(sha1password)
     response = request_api_data(head)
     return get_password_leak_count(response, tail)
 
